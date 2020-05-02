@@ -6,16 +6,20 @@
         <h4>Email: {{myInfoCtrl.user.email}}</h4>
         <h4>Phone number: {{myInfoCtrl.user.phone}}</h4>
         <br>
-        <h4>Favorite dish:</h4>
-        <div class="card" style="align-content: center;">
+        <div class="card" style="align-content: center; width: 400;">
             <div class="container">
-                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar">
-                <h4><b>John Doe</b></h4>
-                <p>Architect & Engineer</p>
+                <h4><b>Favorite dish:</b></h4>
+                <img width="200" height="200"
+                    ng-src="images/menu/{{myInfoCtrl.menuItem.category_short_name}}/{{myInfoCtrl.menuItem.category_short_name}}.jpg"
+                    alt="Avatar">
+                <h4><b>Name: {{myInfoCtrl.menuItem.name}}</b></h4>
+                <p>Description: {{myInfoCtrl.menuItem.description}}</p>
             </div>
         </div>
     </div>
 </div>
 <div ng-if="!(myInfoCtrl.showUser())">
-    <h1>No estas registrado papu</h1>
+    <div class="container" style="text-align: center; color: aliceblue; justify-content: center;">
+        <h3>Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now</a> !</h3>
+    </div>
 </div>

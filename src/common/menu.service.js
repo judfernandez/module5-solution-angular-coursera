@@ -9,6 +9,7 @@
   function MenuService($http, ApiPath) {
     var service = this;
     service.registrationUser = false;
+    service.menuItem = false;
 
     service.getCategories = function () {
       return $http.get(ApiPath + '/categories.json').then(function (response) {
@@ -37,12 +38,17 @@
       return response;
     }
 
-    service.addRegisterUser = function (user) {
+    service.addRegisterUser = function (user, menuItem) {
       service.registrationUser = user;
+      service.menuItem = menuItem;
     }
 
     service.getRegisterUser = function () {
       return service.registrationUser;
+    }
+
+    service.getMenuItem = function () {
+      return service.menuItem;
     }
 
   }

@@ -17,7 +17,7 @@
                 var user = signUpCtrl.register;
                 signUpCtrl.itemExist = true;
                 signUpCtrl.saveInfo = true;
-                MenuService.addRegisterUser(user);
+                MenuService.addRegisterUser(user, response.data);
             })
                 .catch(function (error) {
                     signUpCtrl.itemExist = false;
