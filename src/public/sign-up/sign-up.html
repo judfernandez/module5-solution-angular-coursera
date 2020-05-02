@@ -1,0 +1,69 @@
+<div class="container" style="text-align: center;">
+    <legend style="color: aliceblue;">Subscribe to the restaurant newsletter</legend>
+    <form name='signUpForm' novalidate style="color: black;">
+        <br>
+        <label style="color: aliceblue;">Write your first name:</label>
+        <br>
+        <input type="text" name="firstName" placeholder="" ng-model="signUpCtrl.register.firstName" required>
+        <br>
+        <span style="color:royalblue;"
+            ng-if="(signUpForm.firstName.$error.required) && (signUpForm.firstName.$touched)">
+            First name is required
+        </span>
+        <br>
+
+        <label style="color: aliceblue;">Write your last name:</label>
+        <br>
+        <input type="text" name="lastName" placeholder="" ng-model="signUpCtrl.register.lastName" required>
+        <br>
+        <span style="color:royalblue;" ng-if="(signUpForm.lastName.$error.required) && (signUpForm.lastName.$touched)">
+            Last name is required
+        </span>
+        <br>
+
+        <label style="color: aliceblue;">Write your email:</label>
+        <br>
+        <input type="email" name="email" placeholder="" ng-model="signUpCtrl.register.email" required>
+        <br>
+        <span style="color:royalblue;" ng-if="(signUpForm.email.$error.required) && (signUpForm.email.$touched)">
+            Email is required
+        </span>
+        <span style="color:royalblue;"
+            ng-if="signUpForm.email.$invalid && signUpForm.email.$touched && !(signUpForm.email.$error.required)">
+            Must be a valid email address: handle@domain format
+        </span>
+        <br>
+
+        <label style="color: aliceblue;">Write your phone number (###-###-####):</label>
+        <br>
+        <input type="text" name="phone" placeholder="" ng-model="signUpCtrl.register.phone" required
+            pattern="(\d{3})-(\d{3})-(\d{4})">
+        <br>
+        <span style="color:royalblue;" ng-if="(signUpForm.phone.$error.required) && (signUpForm.phone.$touched)">
+            Phone number is required
+        </span>
+        <span style="color:royalblue;"
+            ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched  && !(signUpForm.phone.$error.required)">
+            Phone must be in the format ###-###-####.
+        </span>
+        <br>
+
+        <label style="color: aliceblue;">Write the number of your favorite dish:</label>
+        <br>
+        <input type="text" name="favoriteDish" placeholder="" required ng-model="signUpCtrl.register.favoriteDish">
+        <br>
+        <span style="color:royalblue;"
+            ng-if="(signUpForm.favoriteDish.$error.required) && (signUpForm.favoriteDish.$touched)">
+            Favorite dish number is required
+        </span>
+        <span style="color:royalblue;" ng-if="!signUpCtrl.itemExist">
+            No such menu number exists
+        </span>
+        <h1 style="color:royalblue;" ng-if="signUpCtrl.saveInfo">
+            Your information has been saved
+        </h1>
+        <br>
+        <button ng-disabled="signUpForm.$invalid"
+            ng-click="signUpCtrl.submit(signUpCtrl.register.favoriteDish)">Subscribe</button>
+    </form>
+</div>

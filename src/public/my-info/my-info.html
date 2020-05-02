@@ -1,0 +1,21 @@
+<div ng-if="myInfoCtrl.showUser()">
+    <div class="container" style="text-align: center; color: aliceblue; justify-content: center;">
+        <legend style="color: aliceblue;">Your information</legend>
+        <h4>First Name: {{myInfoCtrl.user.firstName}}</h4>
+        <h4>Last Name: {{myInfoCtrl.user.lastName}}</h4>
+        <h4>Email: {{myInfoCtrl.user.email}}</h4>
+        <h4>Phone number: {{myInfoCtrl.user.phone}}</h4>
+        <br>
+        <h4>Favorite dish:</h4>
+        <div class="card" style="align-content: center;">
+            <div class="container">
+                <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar">
+                <h4><b>John Doe</b></h4>
+                <p>Architect & Engineer</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-if="!(myInfoCtrl.showUser())">
+    <h1>No estas registrado papu</h1>
+</div>
